@@ -1,0 +1,221 @@
+:root {
+  --bg: #f4f1ea;
+  --panel: #fffaf0;
+  --ink: #2e2a26;
+  --accent: #c94f2d;
+  --muted: #8a8176;
+  --shadow: rgba(46, 42, 38, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Avenir Next", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+  background: radial-gradient(circle at top, #fff6e6 0%, #f1e6d2 45%, #e9dfcf 100%);
+  color: var(--ink);
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px clamp(8px, 1.4vw, 18px) 18px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.sub {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.file,
+.select {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--panel);
+  box-shadow: 0 12px 20px var(--shadow);
+  font-size: 0.9rem;
+}
+
+.file input {
+  display: none;
+}
+
+.file span {
+  cursor: pointer;
+}
+
+.select select {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--ink);
+}
+
+.zoom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--panel);
+  box-shadow: 0 12px 20px var(--shadow);
+  font-size: 0.9rem;
+}
+
+.zoom button {
+  border: none;
+  background: var(--accent);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.zoom button#zoom-100,
+.zoom button#zoom-fit {
+  background: #d6c5aa;
+  color: var(--ink);
+}
+
+.zoom input[type="range"] {
+  width: 140px;
+}
+
+.stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: min(78vh, 820px);
+  background: var(--panel);
+  border-radius: 24px;
+  padding: 8px;
+  box-shadow: 0 18px 36px var(--shadow);
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 18px;
+  background: repeating-linear-gradient(
+      45deg,
+      #fef5e8 0,
+      #fef5e8 12px,
+      #f6ecd8 12px,
+      #f6ecd8 24px
+    );
+  cursor: grab;
+}
+
+#canvas:active {
+  cursor: grabbing;
+}
+
+.empty {
+  position: absolute;
+  inset: 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.drop-hint {
+  position: absolute;
+  inset: 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  border: 2px dashed rgba(201, 79, 45, 0.5);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--accent);
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.drop-hint.active {
+  opacity: 1;
+}
+
+.notes {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+  margin: 0;
+}
+
+.notes a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  margin-left: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(138, 129, 118, 0.3);
+}
+
+.github-link img {
+  width: 18px;
+  height: 18px;
+}
+
+
+@media (max-width: 720px) {
+  .controls {
+    width: 100%;
+  }
+
+  .file,
+  .select,
+  .zoom {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .zoom input[type="range"] {
+    width: 100px;
+  }
+}
+.notes p {
+  margin: 0;
+}

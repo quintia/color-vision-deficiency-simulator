@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Color Vision Deficiency Simulator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <div class="controls">
+          <label class="file">
+            <input id="file-input" type="file" accept="image/*" />
+            <span>画像を選択</span>
+          </label>
+          <label class="select">
+            <span>Filter</span>
+            <select id="filter-select">
+              <option value="normal">Original</option>
+              <option value="deutan">Deuteranopia</option>
+              <option value="deuteranomaly">Deuteranomaly</option>
+              <option value="protan">Protanopia</option>
+              <option value="protanomaly">Protanomaly</option>
+              <option value="tritan">Tritanopia</option>
+              <option value="tritanomaly">Tritanomaly</option>
+              <option value="monochrome">Monochrome (BT.601)</option>
+            </select>
+          </label>
+          <div class="zoom">
+            <button id="zoom-out" type="button">-</button>
+            <input id="zoom-range" type="range" min="0.2" max="4" step="0.01" value="1" />
+            <button id="zoom-in" type="button">+</button>
+            <button id="zoom-100" type="button">Original Size</button>
+            <button id="zoom-fit" type="button">Fit to View</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="stage">
+        <div class="canvas-wrap" id="canvas-wrap">
+          <canvas id="canvas"></canvas>
+          <div id="empty" class="empty">
+            <p>
+              画像を読み込んでフィルターを切り替えてください。<br />
+              画像はアップロードされず、ブラウザ内で処理します。
+            </p>
+          </div>
+          <div id="drop-hint" class="drop-hint" aria-hidden="true">
+            <p>ここに画像をドロップ</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="notes">
+        <p>
+          © 2026 quintia/K Yamaguchi
+          <a class="github-link" href="https://github.com/quintia/color-vision-deficiency-simulator" target="_blank" rel="noreferrer">
+            <img src="github-mark.svg" alt="GitHub" />
+          </a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

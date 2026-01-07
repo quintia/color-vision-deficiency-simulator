@@ -1,0 +1,13 @@
+Color Vision Deficiency Simulator
+
+This app includes a color blindness simulation derived from the HCIRN/Wickline
+Color Laboratory algorithm (Color Laboratory / HCIRN).
+
+HCIRN/Wickline-derived code is located in:
+- filter.js
+
+That file is licensed under CC BY-SA 4.0:
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Other code in this app is licensed under the Apache License, Version 2.0:
+https://www.apache.org/licenses/LICENSE-2.0
